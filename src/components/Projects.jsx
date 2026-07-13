@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "../index.css";
 import resumeImg    from "../assets/resume.jpg";
-import ecoimg       from "../assets/ecomerce.png";
+import ecoimg       from "../assets/cloth.jpg";
 import mealimg      from "../assets/onlinemeal.png";
 import formimg      from "../assets/form.jpg";
 import weatherimg   from "../assets/weather.jpg";
@@ -14,8 +14,18 @@ import recipeimg    from "../assets/recipe.png";
 import medicareimg from "../assets/health.jpg"
 import khataimg from "../assets/khata.jpg" 
 import formcraftimg from  "../assets/drag-form.jpg" 
+import safepayimg from "../assets/safepay.jpg"
 const featuredProjects = [
   { title: "Resume Builder",           tag: "React App",   description: "Create professional resumes with live preview and export.", image: resumeImg,    live: "https://resume-builder-react-pied.vercel.app/",                             github: "https://github.com/Declutterqueen/Resume-builder-react" },
+  {
+  title: "SafePay",
+  tag: "Full Stack App",
+ description: "Secure payment platform with modern UI & seamless checkout.",
+  image: safepayimg,
+  live: "https://safepay-payment-beta.vercel.app/checkout",
+  github: "https://github.com/mehreencodes/safepay-payment"
+},
+ { title: "Quick Khata", tag: "Invoicing App", description: "Offline invoicing & ledger app with dashboard, khata book & reports.", image: khataimg, live: "https://khata-pro-gamma.vercel.app/", github: "https://github.com/mehreencodes/Khata-pro" },
   {
     title: "MediCare",
     tag: "React App",
@@ -25,9 +35,15 @@ const featuredProjects = [
     github: "https://github.com/Declutterqueen/MediCare-Healthcare-Website"
   },
   { title: "Dragon Bite",              tag: "Recipe Site", description: "Chinese cuisine website with clean recipe layouts.",         image: mealimg,      live: "https://chineesefood.vercel.app/",                                          github: "https://github.com/Declutterqueen/Chineesefood" },
-  { title: "Sustainable E-Commerce",   tag: "Full UI",     description: "Eco-friendly fashion store with modern UI & filtering.",    image: ecoimg,       live: "https://sustainablefashion-site.netlify.app/",                              github: "https://github.com/declutterqueen/Sustainable-fashion" },
+  {
+  title: "TerraThread Store",
+  tag: "E-Commerce",
+description: "Fashion e-commerce website with clean UI & responsive design.",  image: ecoimg,
+  live: "https://terrathread-store.vercel.app/",
+  github: "https://github.com/mehreencodes/terrathread-store"
+},
   { title: "DashFlow Dashboard",       tag: "Dashboard",   description: "Interactive admin dashboard with charts & data views.",     image: dashboardimg, live: "https://saasdashboard154.netlify.app/",                                      github: "https://github.com/Declutterqueen/Dashboard" },
-  { title: "Quick Khata", tag: "Invoicing App", description: "Offline invoicing & ledger app with dashboard, khata book & reports.", image: khataimg, live: "https://khata-pro-gamma.vercel.app/", github: "https://github.com/mehreencodes/Khata-pro" },
+ 
   { title: "FormCraft Pro", tag: "Full Stack App", description: "Drag and drop form builder with live preview, submission tracking & database storage.", image: formcraftimg, live: "https://drag-form-builder-production-242b.up.railway.app/", github: "https://github.com/Declutterqueen/drag-form-builder" },
   // { title: "Expense Tracker",          tag: "Finance App", description: "Track income, expenses & savings goals visually.",          image: expenseimg,   live: "https://declutterqueen.github.io/Expense-Tracker/",                         github: "https://github.com/declutterqueen/Expense-Tracker" },
 ];

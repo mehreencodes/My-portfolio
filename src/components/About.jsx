@@ -30,15 +30,17 @@ const AboutMe = () => {
           <div className="about-content">
             <span className="about-label">About Me</span>
             <h2 className="about-heading">Hello, I'm Mehreen</h2>
-            <h3 className="about-greeting">Frontend Developer & Creative Writer</h3>
-   <p className="about-description">
-  I'm Mehreen Khalid — a self-taught Frontend Developer & Creative Writer
-  from Pakistan. I build fast, responsive and visually polished websites
-  using <span className="about-highlight">React, CSS and modern UI practices</span> that
-  don't just look good — they convert visitors into clients.
-  Beyond code, I write <span className="about-highlight">SEO-friendly content</span> that
-  speaks directly to the audience. Clean code. Sharp copy.
-  <span className="about-tagline"> Simple. Intentional. Impactful.</span>
+
+<h3 className="about-greeting">React.js & Full Stack Developer</h3>
+
+<p className="about-description">
+  I'm <span className="about-highlight">Mehreen Khalid</span>, a React.js & Full Stack
+  Developer from Pakistan passionate about building fast, scalable, and
+  responsive websites and web applications. I focus on clean architecture,
+  maintainable code, and intuitive user experiences that perform seamlessly
+  across modern devices. Every project I build is designed with performance,
+  usability, and long-term scalability in mind.
+  <span className="about-tagline"> Clean Code. Fast Performance. Built to Scale.</span>
 </p>
             <div className="about-btn-wrapper">
               <a href={CV} download className="about-btn">Download CV</a>

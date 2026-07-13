@@ -8,30 +8,26 @@ import React, { useEffect, useRef, useState } from "react";
 import "../index.css";
 
 
-/* ── All skills flat — each gets its own card ── */
 const developerSkills = [
-  { label: "HTML",        pct: 95 },
-  { label: "CSS",         pct: 90 },
-  { label: "JavaScript",  pct: 80 },
-  { label: "React",       pct: 85 },
-  { label: "MongoDB",     pct: 75 },
-  { label: "Github",         pct: 80 },
-  { label: "Layouts",     pct: 88 },
-  { label: "Responsive",  pct: 92 },
-  { label: "UI/UX",       pct: 78 },
-  { label: "Bootstrap",   pct: 85 },
-
+  { label: "HTML5",        pct: 95 },
+  { label: "CSS3",         pct: 92 },
+  { label: "JavaScript",   pct: 88 },
+  { label: "React.js",     pct: 90 },
+  { label: "Node.js",      pct: 80 },
+  { label: "Express.js",   pct: 78 },
+  { label: "MongoDB",      pct: 78 },
+  { label: "Git",          pct: 85 },
+  { label: "GitHub",       pct: 88 },
+  { label: "REST APIs",    pct: 80 },
+  { label: "Responsive Design", pct: 95 },
+  { label: "UI/UX",        pct: 82 },
+  { label: "Bootstrap",    pct: 85 },
+  { label: "AI Tools",     pct: 92 },
+  { label: "ChatGPT",      pct: 95 },
+  { label: "Claude",       pct: 90 },
 ];
 
-const writerSkills = [
-  { label: "ContentWriting",     pct: 83 },
-  { label: "SEO Blogs",         pct: 80 },
-  { label: "Copywriting", pct: 78 },
-    { label: "MS Word",     pct: 90 },
-  { label: "Claude",      pct: 85 },
-    { label: "ChatGpt",      pct: 90 },
 
-];
 
 /* ── Single skill card ── */
 const SkillCard = ({ label, pct, animate, delay }) => {
@@ -110,18 +106,7 @@ const Skills = () => {
       </div>
 
       {/* As a Writer */}
-      <p className="row-label" style={{ marginTop: "40px" }}>As a Writer & Tool User</p>
-      <div className="skills-grid">
-        {writerSkills.map((skill, i) => (
-          <SkillCard
-            key={i}
-            label={skill.label}
-            pct={skill.pct}
-            animate={animate}
-            delay={200 + i * 100}
-          />
-        ))}
-      </div>
+        
     </section>
   );
 };

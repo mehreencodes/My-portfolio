@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import profileImg from "../assets/hero.png";
 import "../index.css";
@@ -146,9 +145,9 @@ const Hero = () => {
             <span className="fc-label">Tech Stack</span>
             <div className="tech-stack">
               <span className="tech-tag">React</span>
-              <span className="tech-tag">CSS</span>
+              <span className="tech-tag">Node.js</span>
+              <span className="tech-tag">Express</span>
               <span className="tech-tag">MongoDB</span>
-              <span className="tech-tag">Git</span>
             </div>
           </div>
         </div>
