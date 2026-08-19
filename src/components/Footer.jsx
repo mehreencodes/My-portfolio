@@ -20,11 +20,11 @@ const navLinks = [
 ];
 
 const socials = [
-  { icon: <FaGithub />,    href: "https://github.com/Declutterqueen",                                                                                          label: "GitHub"   },
-  { icon: <FaLinkedin />,  href: "https://www.linkedin.com/in/mehreen-khalid-53bbbb361/",                                                                      label: "LinkedIn" },
-  { icon: <FaInstagram />, href: "https://www.instagram.com/mehreenk154/",                                                                                     label: "Instagram"},
-  { icon: <FaMediumM />,   href: "https://medium.com/@khalidmehri65",                                                                                           label: "Medium"   },
-  { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=61588131044744",                                                                     label: "Facebook" },
+  { icon: <FaGithub />,    href: "https://github.com/mehreencodes",                          label: "GitHub"   },
+  { icon: <FaLinkedin />,  href: "https://www.linkedin.com/in/mehreenkhaliddev/",             label: "LinkedIn" },
+  { icon: <FaInstagram />, href: "https://www.instagram.com/mehreenk.dev/#",                    label: "Instagram"},
+  { icon: <FaMediumM />,   href: "https://medium.com/@khalidmehri65",                         label: "Medium"   },
+  { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=61588131044744",    label: "Facebook" },
 ];
 
 const Footer = () => {

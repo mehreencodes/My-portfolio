@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "../index.css";
 
@@ -6,8 +5,8 @@ const Loader = ({ onFinish }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 1000;
-    const interval = 20;
+    const duration = 650;
+    const interval = 15;
     const total = duration / interval;
 
     let current = 0;
@@ -27,7 +26,7 @@ const Loader = ({ onFinish }) => {
 
         setTimeout(() => {
           onFinish();
-        }, 250);
+        }, 150);
       }
     }, interval);
 
@@ -40,6 +39,7 @@ const Loader = ({ onFinish }) => {
       {/* background glow */}
       <div className="loader-glow glow-one"></div>
       <div className="loader-glow glow-two"></div>
+      <div className="loader-glow-center"></div>
 
       {/* content */}
       <div className="loader-content">
@@ -64,14 +64,17 @@ Where Design Meets Functionality        </p>
         </h2>
 
         <p className="loader-role">
-          Frontend Developer & Writer
+          React.js Developer &amp; Website Developer
         </p>
 
-        <div className="loader-progress">
-          <div
-            className="loader-progress-fill"
-            style={{ width: `${progress}%` }}
-          ></div>
+        <div className="loader-progress-wrap">
+          <div className="loader-progress">
+            <div
+              className="loader-progress-fill"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+          <span className="loader-percent">{progress}%</span>
         </div>
 
       </div>
@@ -81,8 +84,3 @@ Where Design Meets Functionality        </p>
 };
 
 export default Loader;
-
-
-
-
-

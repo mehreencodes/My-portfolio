@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   FaEnvelope,
-  FaPhoneAlt,
+  FaLinkedin,
   FaMapMarkerAlt,
   FaArrowRight,
   FaPaperPlane,
@@ -17,10 +17,10 @@ const contactInfo = [
     href: "mailto:khalidmehri65@gmail.com",
   },
   {
-    icon: <FaPhoneAlt />,
-    label: "Phone",
-    value: "+92 341 5331407",
-    href: "tel:+923415331407",
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
+    value: "mehreenkhaliddev",
+    href: "https://www.linkedin.com/in/mehreenkhaliddev/",
   },
   {
     icon: <FaMapMarkerAlt />,
@@ -78,7 +78,13 @@ const Contact = () => {
             <div className="cnt-info-cards">
               {contactInfo.map((item, i) => (
                 item.href ? (
-                  <a key={i} href={item.href} className="cnt-info-card">
+                  <a
+                    key={i}
+                    href={item.href}
+                    target={item.label === "LinkedIn" ? "_blank" : undefined}
+                    rel={item.label === "LinkedIn" ? "noopener noreferrer" : undefined}
+                    className="cnt-info-card"
+                  >
                     <div className="cnt-info-icon">{item.icon}</div>
                     <div className="cnt-info-text">
                       <span className="cnt-info-label">{item.label}</span>

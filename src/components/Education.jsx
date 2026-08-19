@@ -1,9 +1,16 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import "../index.css";
 
 const educationData = [
+  {
+    institute: "Self Learning",
+    degree: "React.js & Modern Website Development",
+    duration: "2025 – Present",
+    grade: "Ongoing",
+    tag: "Self-Taught",
+    desc: "Hands-on with React, JavaScript, and modern website development — building landing pages, business sites, and web apps, with Node.js, Express, and MongoDB for full-stack projects when needed.",
+  },
   {
     institute: "Govt. Degree College for Women, Dina",
     degree: "ICS — Computer Science",
@@ -19,14 +26,6 @@ const educationData = [
     grade: "B",
     tag: "Bachelors",
     desc: "Developed sharp analytical, research, and writing skills through humanities study.",
-  },
-  {
-    institute: "Self Learning",
-    degree: "Frontend Development",
-    duration: "2024 – Present",
-    grade: "Ongoing",
-    tag: "Self-Taught",
-    desc: "Building real-world projects with React, JavaScript, CSS, and modern UI practices.",
   },
 ];
 
