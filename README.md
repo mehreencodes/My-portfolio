@@ -1,30 +1,32 @@
-A personal portfolio built with **React** to showcase my projects, experience, and passion for creating modern web applications.
+# Mehreen Khalid — Portfolio 🌸
 
-The portfolio features a clean, responsive design with smooth interactions, fast performance, and a user-focused experience across all devices.
+A personal portfolio built with React to showcase my projects, skills, and approach to building modern web applications. I'm a **React.js & Website Developer** — I design and build fast, responsive websites (landing pages, business sites, ecommerce stores, and web apps), and I'm also full-stack capable when a project needs a working backend.
 
-## Live Demo
+The portfolio itself reflects that: a clean, responsive design with smooth interactions, fast performance, and a user-focused experience across all devices.
 
-https://my-portfolio-five-sandy-18.vercel.app/
+**🔗 Live Demo:** [my-portfolio-five-sandy-18.vercel.app](https://my-portfolio-five-sandy-18.vercel.app/)
 
-## Features
+---
 
-* Responsive design
-* Modern and clean interface
-* Smooth animations
-* Project showcase
-* About section
-* Contact form
-* Fast performance
+## ✨ Features
 
-## Built With
+- Responsive design — works cleanly across phones, tablets, and desktops
+- Modern, clean interface with a consistent visual identity
+- Smooth animations and micro-interactions
+- Project showcase with live demos and source code links
+- About section with skills and background
+- Contact form
+- Fast performance, built with Vite
 
-* React.js
-* JavaScript
-* HTML5
-* CSS3
-* Vite
+## 🛠️ Built With
 
-## Getting Started
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Vite
+
+## 🚀 Getting Started
 
 Clone the repository:
 
@@ -52,4 +54,12 @@ npm run build
 
 ---
 
-Designed and built by **Mehreen Khalid**.
+## 📬 Contact
+
+- **Email:** khalidmehri65@gmail.com
+- **LinkedIn:** [mehreenkhaliddev](https://www.linkedin.com/in/mehreenkhaliddev/)
+- **GitHub:** [mehreencodes](https://github.com/mehreencodes)
+
+---
+
+Designed and built with 💗 by **Mehreen Khalid**
