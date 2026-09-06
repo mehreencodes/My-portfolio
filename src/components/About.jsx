@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import profileImg from "../assets/about-image.jpg";
 import "../index.css";
 import { Code2, Zap, Smartphone, Server, FileText, Quote } from "lucide-react";
 
 const AboutMe = ({ onShowCV }) => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section" ref={sectionRef}>
       <div className="about-container">
         <div className="about-grid">
 
           {/* LEFT — IMAGE */}
-          <div className="about-image-wrapper">
+          <div className={`about-image-wrapper about-reveal ${visible ? "about-reveal-in" : ""}`}>
             <div className="about-image-glow" />
             <div className="about-image-card">
               <img src={profileImg} alt="Mehreen Khalid" />
@@ -26,7 +43,7 @@ const AboutMe = ({ onShowCV }) => {
           </div>
 
           {/* RIGHT — TEXT */}
-          <div className="about-content">
+          <div className={`about-content about-reveal about-reveal-delay ${visible ? "about-reveal-in" : ""}`}>
             <span className="about-label">About Me</span>
             <h2 className="about-heading">Hello, I'm Mehreen</h2>
 
@@ -37,17 +54,12 @@ const AboutMe = ({ onShowCV }) => {
               <p className="about-description">
                 I'm <span className="about-highlight">Mehreen Khalid</span>, a
                 React.js developer based in Pakistan. I build modern
-                websites — landing pages, portfolio and business sites,
-                ecommerce stores, and full web apps — with a focus on
-                speed, clean structure, and interfaces that feel
-                effortless to use on any screen. I pay attention to the
-                details most people skip: a component structure a
-                teammate could pick up without asking questions, and
-                layouts that hold up whether someone's on a phone or a
-                large monitor. When a project needs backend work too, I
-                build that out as well using Node.js, Express, MongoDB,
-                or Firebase — so I can take a project from a rough idea
-                to a working product, end to end.
+                websites — landing pages, business sites, ecommerce
+                stores, and web apps — focused on speed, clean structure,
+                and interfaces that work well on any screen. I also build
+                the backend when a project needs it, using Node.js,
+                Express, MongoDB, or Firebase — taking a project from idea
+                to finished product, end to end.
               </p>
             </div>
 

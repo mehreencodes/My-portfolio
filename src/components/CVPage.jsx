@@ -6,6 +6,11 @@ import {
   FaLinkedin,
   FaGithub,
   FaMapMarkerAlt,
+  FaUserAlt,
+  FaCode,
+  FaGraduationCap,
+  FaLayerGroup,
+  FaHandshake,
 } from "react-icons/fa";
 import "../index.css";
 import CV from "../assets/Mehreen_Khalid_CV.pdf";
@@ -44,6 +49,8 @@ const projects = [
 const CVPage = ({ onClose }) => {
   return (
     <div className="cvpage-wrap">
+      <div className="cvpage-grid-bg" />
+      <div className="cvpage-orb" />
 
       {/* top bar */}
       <div className="cvpage-topbar">
@@ -60,6 +67,7 @@ const CVPage = ({ onClose }) => {
 
         {/* header */}
         <div className="cvpage-header">
+          <div className="cvpage-avatar">MK</div>
           <h1 className="cvpage-name">Mehreen Khalid</h1>
           <span className="cvpage-role-pill">React.js &amp; Website Developer</span>
 
@@ -86,7 +94,7 @@ const CVPage = ({ onClose }) => {
 
         {/* About */}
         <div className="cvpage-section">
-          <h2 className="cvpage-section-title">About Me</h2>
+          <h2 className="cvpage-section-title"><FaUserAlt size={12} /> About Me</h2>
           <p className="cvpage-about-text">
             React.js developer based in Pakistan who builds modern websites —
             landing pages, business sites, ecommerce stores, and web apps —
@@ -100,7 +108,7 @@ const CVPage = ({ onClose }) => {
 
         {/* Skills */}
         <div className="cvpage-section">
-          <h2 className="cvpage-section-title">Skills</h2>
+          <h2 className="cvpage-section-title"><FaCode size={12} /> Skills</h2>
           <div className="cvpage-skill-tags">
             {skills.map((s, i) => (
               <span key={i} className="cvpage-skill-tag">{s}</span>
@@ -110,21 +118,26 @@ const CVPage = ({ onClose }) => {
 
         {/* Education */}
         <div className="cvpage-section">
-          <h2 className="cvpage-section-title">Education</h2>
-          {education.map((e, i) => (
-            <div key={i} className="cvpage-edu-row">
-              <span className="cvpage-edu-period">{e.period}</span>
-              <div className="cvpage-edu-text">
-                <span className="cvpage-edu-title">{e.title}</span>
-                <span className="cvpage-edu-sub">{e.sub}</span>
+          <h2 className="cvpage-section-title"><FaGraduationCap size={13} /> Education</h2>
+          <div className="cvpage-edu-timeline">
+            {education.map((e, i) => (
+              <div key={i} className="cvpage-edu-row">
+                <div className="cvpage-edu-marker">
+                  <span className="cvpage-edu-dot" />
+                </div>
+                <div className="cvpage-edu-body">
+                  <span className="cvpage-edu-period">{e.period}</span>
+                  <span className="cvpage-edu-title">{e.title}</span>
+                  <span className="cvpage-edu-sub">{e.sub}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Projects */}
         <div className="cvpage-section">
-          <h2 className="cvpage-section-title">Projects</h2>
+          <h2 className="cvpage-section-title"><FaLayerGroup size={12} /> Projects</h2>
           <div className="cvpage-project-grid">
             {projects.map((p, i) => (
               <div key={i} className="cvpage-project-item">
@@ -140,7 +153,7 @@ const CVPage = ({ onClose }) => {
 
         {/* Reference */}
         <div className="cvpage-section">
-          <h2 className="cvpage-section-title">Reference</h2>
+          <h2 className="cvpage-section-title"><FaHandshake size={13} /> Reference</h2>
           <p className="cvpage-about-text">Available upon request.</p>
         </div>
 

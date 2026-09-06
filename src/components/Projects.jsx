@@ -5,7 +5,7 @@ import resumeImg    from "../assets/resume.jpg";
 import ecoimg       from "../assets/cloth.png";
 import mealimg      from "../assets/food.png";
 import formimg      from "../assets/form.jpg";
-import weatherimg   from "../assets/weather.jpg";
+import weatherimg   from "../assets/weather2.png";
 import Gradientimg  from "../assets/Gradient.png";
 import neureimg     from "../assets/neure.jpg";
 import dashboardimg from "../assets/dashboard.jpg";
@@ -99,7 +99,7 @@ const miniProjects = [
     tag: "API App",
     description: "Real-time weather lookup with a clean, distraction-free search interface.",
     image: weatherimg,
-    live: "https://declutterqueen.github.io/Weather-App/",
+    live: "https://weather-app-nine-ecru-11.vercel.app/",
     github: "https://github.com/mehreencodes/Weather-App"
   },
   {
