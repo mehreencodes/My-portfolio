@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../index.css";
 
-const DURATION = 650;          // ms for the bar to fill
-const EXIT = 450;              // ms for the fade-out
+const DURATION = 400;
+const EXIT = 250;
 const ONCE_PER_SESSION = true; // set true to skip the loader on repeat visits in the same tab
 
 const seenBefore = () => {
