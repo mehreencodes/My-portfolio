@@ -1,135 +1,156 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../index.css";
+import { Smartphone, Palette, Plug } from "lucide-react";
+import { FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { VscVscode } from "react-icons/vsc";
+import {
+  SiReact,
+  SiJavascript,
+  SiTailwindcss,
+  SiBootstrap,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiNpm,
+  SiVite,
+  SiVercel,
+  SiNetlify,
+  SiRailway,
+} from "react-icons/si";
 
-/* Primary — React.js & Website Development */
-const frontendSkills = [
-  { label: "React.js",          pct: 90 },
-  { label: "JavaScript",        pct: 88 },
-  { label: "HTML5",             pct: 95 },
-  { label: "CSS3",              pct: 92 },
-  { label: "Tailwind CSS",      pct: 88 },
-  { label: "Bootstrap",         pct: 85 },
-  { label: "Responsive Design", pct: 95 },
-  { label: "UI/UX",             pct: 82 },
+// EDIT — keep only skills you truly use
+const tabs = [
+  {
+    id: "frontend",
+    label: "Frontend",
+    skills: [
+      { name: "React.js", icon: SiReact },
+      { name: "JavaScript", icon: SiJavascript },
+   { name: "HTML5", icon: FaHtml5 },
+{ name: "CSS3", icon: FaCss3Alt },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Bootstrap", icon: SiBootstrap },
+      { name: "Responsive Design", icon: Smartphone },
+      { name: "UI/UX", icon: Palette },
+    ],
+  },
+  {
+    id: "backend",
+    label: "Backend & Database",
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "REST APIs", icon: Plug },
+    ],
+  },
+ {
+  id: "workflow",
+  label: "Workflow",
+  skills: [
+    { name: "Git", icon: SiGit },
+    { name: "GitHub", icon: SiGithub },
+    { name: "VS Code", icon: VscVscode },
+    { name: "npm", icon: SiNpm },
+    { name: "Vite", icon: SiVite },
+    { name: "Vercel", icon: SiVercel },
+    { name: "Netlify", icon: SiNetlify },
+    { name: "Railway", icon: SiRailway },
+  ],
+},
 ];
 
-/* Secondary — Full-Stack capability */
-const backendSkills = [
-  { label: "Node.js",     pct: 80 },
-  { label: "Express.js",  pct: 78 },
-  { label: "MongoDB",     pct: 78 },
-  { label: "REST APIs",   pct: 80 },
-];
-
-/* Tools & workflow */
-const toolSkills = [
-  { label: "Git",    pct: 85 },
-  { label: "GitHub", pct: 88 },
-];
-
-/* ── Single skill card ── */
-const SkillCard = ({ label, pct, animate, delay }) => {
-  const [width, setWidth] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!animate) return;
-    const t = setTimeout(() => {
-      setWidth(pct);
-      setTimeout(() => setLoaded(true), 1300);
-    }, delay);
-    return () => clearTimeout(t);
-  }, [animate, pct, delay]);
-
-  return (
-    <div className="skill-card">
-      {/* top row: label left, badge right */}
-      <div className="card-top">
-        <span className="card-label">{label}</span>
-        <span className={`card-badge${loaded ? " badge-visible" : ""}`}>
-          {pct}%
-        </span>
-      </div>
-
-      {/* progress track */}
-      <div className="bar-track">
-        <div
-          className={`bar-fill${loaded ? " loaded" : ""}`}
-          style={{ width: `${width}%` }}
-        />
-      </div>
-    </div>
-  );
-};
-
-/* ── Skill group row (label + grid) ── */
-const SkillGroup = ({ title, skills, animate, startDelay }) => (
-  <>
-    <p className="row-label">{title}</p>
-    <div className="skills-grid">
-      {skills.map((skill, i) => (
-        <SkillCard
-          key={skill.label}
-          label={skill.label}
-          pct={skill.pct}
-          animate={animate}
-          delay={startDelay + i * 100}
-        />
-      ))}
-    </div>
-  </>
-);
-
-/* ── Main section ── */
 const Skills = () => {
-  const [animate, setAnimate] = useState(false);
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
+  const tabRefs = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setAnimate(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  // keyboard: arrow keys move between tabs
+  const onKeyDown = (e) => {
+    let next = null;
+    if (e.key === "ArrowRight") next = (active + 1) % tabs.length;
+    if (e.key === "ArrowLeft") next = (active - 1 + tabs.length) % tabs.length;
+    if (next === null) return;
+    e.preventDefault();
+    setActive(next);
+    tabRefs.current[next]?.focus();
+  };
+
   return (
-    <section id="skills" className="skills-section" ref={sectionRef}>
-      <div className="skills-heading">
-        <span className="skills-label">Expertise</span>
-        <h2 className="skills-title">My Skills</h2>
-        <p className="skills-support-text">What I'm good at</p>
+    <section id="skills" className="sk-section" ref={sectionRef}>
+      <div className={`sk-inner ${visible ? "sk-in" : ""}`}>
+        <header className="sk-head">
+          <span className="sk-label">Expertise</span>
+          <h2 className="sk-title">
+            My <span className="sk-accent">Skills</span>
+          </h2>
+        </header>
+
+        {/* Tabs */}
+        <div
+          className="sk-tabs"
+          role="tablist"
+          aria-label="Skill categories"
+          onKeyDown={onKeyDown}
+        >
+          {tabs.map((t, i) => (
+            <button
+              key={t.id}
+              ref={(el) => (tabRefs.current[i] = el)}
+              id={`sk-tab-${t.id}`}
+              role="tab"
+              type="button"
+              aria-selected={active === i}
+              aria-controls={`sk-panel-${t.id}`}
+              tabIndex={active === i ? 0 : -1}
+              className={`sk-tab ${active === i ? "active" : ""}`}
+              onClick={() => setActive(i)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Panels share one grid cell, so height never jumps between tabs */}
+        <div className="sk-stage">
+          {tabs.map((t, i) => (
+            <div
+              key={t.id}
+              id={`sk-panel-${t.id}`}
+              role="tabpanel"
+              aria-labelledby={`sk-tab-${t.id}`}
+              aria-hidden={active !== i}
+              className={`sk-panel ${active === i ? "show" : ""}`}
+            >
+              {t.skills.map(({ name, icon: Icon }, idx) => (
+                <span className="sk-pill" key={name} style={{ "--i": idx }}>
+                  <Icon size={18} />
+                  {name}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Primary: React.js & Website Development */}
-      <SkillGroup
-        title="Frontend & React Development"
-        skills={frontendSkills}
-        animate={animate}
-        startDelay={150}
-      />
-
-      {/* Secondary: Full-Stack capability */}
-      <SkillGroup
-        title="Full-Stack & Backend"
-        skills={backendSkills}
-        animate={animate}
-        startDelay={150 + frontendSkills.length * 100}
-      />
-
-      {/* Tools */}
-      <SkillGroup
-        title="Tools & Workflow"
-        skills={toolSkills}
-        animate={animate}
-        startDelay={150 + (frontendSkills.length + backendSkills.length) * 100}
-      />
     </section>
   );
 };

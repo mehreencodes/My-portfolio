@@ -3,65 +3,59 @@ import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
-  FaFacebookF,
-  FaMediumM,
-  FaArrowUp,
-  FaHeart,
+ FaBriefcase
 } from "react-icons/fa";
+import { Mail, MapPin, ArrowUp } from "lucide-react";
 import "../index.css";
+import { SiFreelancer } from "react-icons/si";
 
 const navLinks = [
-  { label: "Home",      href: "#home"      },
-  { label: "About",     href: "#about"      },
-  { label: "Education", href: "#education"  },
-  { label: "Skills",    href: "#skills"     },
-  { label: "Projects",  href: "#projects"   },
-  { label: "Contact",   href: "#contact"    },
+  { label: "Home",      href: "#home" },
+  { label: "About",     href: "#about" },
+  { label: "Services",  href: "#services" },
+  // { label: "Education", href: "#education" },
+  { label: "Skills",    href: "#skills" },
+  { label: "Projects",  href: "#projects" },
+  { label: "Contact",   href: "#contact" },
 ];
 
 const socials = [
-  { icon: <FaGithub />,    href: "https://github.com/mehreencodes",                          label: "GitHub"   },
-  { icon: <FaLinkedin />,  href: "https://www.linkedin.com/in/mehreenkhaliddev/",             label: "LinkedIn" },
-  { icon: <FaInstagram />, href: "https://www.instagram.com/mehreenk.dev/#",                    label: "Instagram"},
-  { icon: <FaMediumM />,   href: "https://medium.com/@khalidmehri65",                         label: "Medium"   },
-  { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=61588131044744",    label: "Facebook" },
+  { icon: <FaGithub />,    href: "https://github.com/mehreencodes",                        label: "GitHub" },
+  { icon: <FaLinkedin />,  href: "https://www.linkedin.com/in/mehreenkhaliddev/",           label: "LinkedIn" },
+  { icon: <FaInstagram />, href: "https://www.instagram.com/mehreenk.dev/",                 label: "Instagram" },
+   { icon: <SiFreelancer />, href: "https://www.freelancer.com/u/mehreenk08?frm=mehreenk08&sb=t", label: "Freelancer" },
+  // { icon: <FaMediumM />,   href: "https://medium.com/@khalidmehri65",                       label: "Medium" },
+  // { icon: <FaFacebookF />, href: "https://www.facebook.com/profile.php?id=61588131044744",  label: "Facebook" },
 ];
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="ftr-section">
+    <footer className="ft-section">
+      <div className="ft-top-line" />
 
-      {/* top gradient line */}
-      <div className="ftr-top-line" />
-
-      <div className="ftr-container">
-
-        {/* ── GRID ── */}
-        <div className="ftr-grid">
-
+      <div className="ft-inner">
+        <div className="ft-grid">
           {/* Brand */}
-          <div className="ftr-brand">
-            <div className="ftr-logo">
-              <span className="ftr-logo-circle">MK</span>
+          <div className="ft-brand">
+            <div className="ft-logo">
+              <span className="ft-logo-circle">MK</span>
               <h2>Mehreen Khalid</h2>
             </div>
-            <p className="ftr-brand-desc">
-              Crafting modern, responsive websites and meaningful digital
-              experiences with clean design and purposeful code.
+            <p className="ft-desc">
+              React.js developer building fast, modern websites and web apps
+              for businesses — from idea to launch.
             </p>
-
-            {/* social icons under brand */}
-            <div className="ftr-socials">
-              {socials.map((s, i) => (
+            <div className="ft-socials">
+              {socials.map((s) => (
                 <a
-                  key={i}
+                  key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="ftr-social-link"
+                  className="ft-social"
                 >
                   {s.icon}
                 </a>
@@ -69,14 +63,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="ftr-col">
-            <h3 className="ftr-col-title">Quick Links</h3>
-            <ul className="ftr-links">
-              {navLinks.map((l, i) => (
-                <li key={i}>
-                  <a href={l.href} className="ftr-link">
-                    <span className="ftr-link-arrow">→</span>
+          {/* Quick links */}
+          <div className="ft-col">
+            <h3 className="ft-col-title">Quick Links</h3>
+            <ul className="ft-links">
+              {navLinks.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="ft-link">
+                    <span className="ft-link-arrow" aria-hidden="true">→</span>
                     {l.label}
                   </a>
                 </li>
@@ -84,33 +78,35 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact info */}
-          <div className="ftr-col">
-            <h3 className="ftr-col-title">Get In Touch</h3>
-            <div className="ftr-contact-info">
-              <a href="mailto:khalidmehri65@gmail.com" className="ftr-contact-item">
-                <span className="ftr-contact-icon">✉</span>
+          {/* Get in touch */}
+          <div className="ft-col">
+            <h3 className="ft-col-title">Get In Touch</h3>
+            <div className="ft-contact">
+              <a href="mailto:khalidmehri65@gmail.com" className="ft-contact-item">
+                <span className="ft-contact-icon"><Mail size={16} /></span>
                 khalidmehri65@gmail.com
               </a>
-              <a href="#contact" className="ftr-cta-mini">
-                Let's Work Together →
-              </a>
+              <div className="ft-contact-item ft-static">
+                <span className="ft-contact-icon"><MapPin size={16} /></span>
+                Jhelum, Punjab, Pakistan
+              </div>
             </div>
           </div>
-
         </div>
 
-        {/* ── BOTTOM BAR ── */}
-        <div className="ftr-bottom">
-          <p className="ftr-copy">
-            © 2026 Mehreen Khalid. Made with <FaHeart className="ftr-heart" /> All rights reserved.
-          </p>
+        {/* faint wordmark */}
+        <div className="ft-mark" aria-hidden="true">MEHREEN KHALID</div>
 
-          <button onClick={scrollToTop} className="ftr-scroll-top" aria-label="Back to top">
-            <FaArrowUp />
+        {/* Bottom bar */}
+        <div className="ft-bottom">
+          <p className="ft-copy">
+            © {new Date().getFullYear()} Mehreen Khalid. All rights reserved.
+          </p>
+          <p className="ft-built">Built with React &amp; Vite</p>
+          <button type="button" onClick={scrollToTop} className="ft-top" aria-label="Back to top">
+            <ArrowUp size={16} />
           </button>
         </div>
-
       </div>
     </footer>
   );

@@ -1,52 +1,98 @@
-import React from "react";
-import { FaCode, FaPaintBrush, FaMobileAlt, FaServer } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { Rocket, Building2, ShoppingCart, Server } from "lucide-react";
 import "../index.css";
 
+// EDIT — keep tags TRUE for what you actually deliver
 const services = [
   {
-    icon: <FaCode />,
-    title: "Website Development",
-    desc: "Custom websites built from scratch with React — fast, responsive, and easy to maintain.",
+    icon: Rocket,
+    title: "Landing Pages",
+    desc: "One focused page that turns visitors into enquiries.",
+    tags: ["Conversion layout", "Clear call-to-action", "SEO basics"],   
   },
   {
-    icon: <FaPaintBrush />,
-    title: "UI/UX Design",
-    desc: "Clean, intuitive interfaces designed around how users actually think and navigate.",
+    icon: Building2,
+    title: "Business Websites",
+    desc: "A professional multi-page site that builds trust.",
+   tags: ["Multi-page", "Contact forms", "Easy to update"],   
   },
   {
-    icon: <FaMobileAlt />,
-    title: "Responsive & Mobile-Ready",
-    desc: "Every project works and looks right on phones, tablets, and desktops — no exceptions.",
+    icon: ShoppingCart,
+    title: "E-Commerce Stores",
+    desc: "Product pages, cart and checkout that make buying simple.",
+    tags: ["Product catalog", "Cart & checkout", "Admin panel"],
   },
   {
-    icon: <FaServer />,
-    title: "Full Stack Web Apps",
-    desc: "Need a working backend too? I connect the database, API, and frontend into one complete app.",
-    badge: "Add-on",
+    icon: Server,
+    title: "Full-Stack Web Apps",
+    desc: "Custom apps with login, database and dashboards, built end to end.",
+    tags: ["Authentication", "Database & API", "Dashboards"],
   },
 ];
 
 const Services = () => {
-  return (
-    <section id="services" className="svc-section">
-      <div className="svc-heading">
-        <span className="svc-label">Services</span>
-        <h2 className="svc-title">What I Offer</h2>
-        <p className="svc-subtitle">
-          Practical, reliable web development — from a single landing page to a full application.
-        </p>
-      </div>
+  const gridRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
-      <div className="svc-grid">
-        {services.map((s, i) => (
-          <div key={i} className="svc-card">
-            <span className="svc-num">{String(i + 1).padStart(2, "0")}</span>
-            {s.badge && <span className="svc-badge">{s.badge}</span>}
-            <div className="svc-icon">{s.icon}</div>
-            <h3 className="svc-card-title">{s.title}</h3>
-            <p className="svc-card-desc">{s.desc}</p>
-          </div>
-        ))}
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (gridRef.current) observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // mouse-follow spotlight
+  const handleMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
+  return (
+    <section id="services" className="sx-section">
+      <div className="sx-inner">
+        <header className="sx-head">
+          <span className="sx-label">Services</span>
+          <h2 className="sx-title">
+            What I <span className="sx-accent">Build</span>
+          </h2>
+        </header>
+
+        <div className={`sx-grid ${visible ? "sx-in" : ""}`} ref={gridRef}>
+          {services.map(({ icon: Icon, title, desc, tags }, i) => (
+            <article
+              key={title}
+              className="sx-card"
+              style={{ "--d": `${i * 0.1}s` }}
+              onMouseMove={handleMove}
+            >
+              <span className="sx-num" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <span className="sx-icon">
+                <Icon size={22} />
+              </span>
+
+              <div className="sx-body">
+                <h3 className="sx-card-title">{title}</h3>
+                <p className="sx-card-desc">{desc}</p>
+                <ul className="sx-tags">
+                  {tags.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
