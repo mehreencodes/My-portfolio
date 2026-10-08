@@ -84,7 +84,7 @@ const Footer = () => {
             <div className="ft-contact">
               <a href="mailto:webdevhub67@gmail.com" className="ft-contact-item">
                 <span className="ft-contact-icon"><Mail size={16} /></span>
-                khalidmehri65@gmail.com
+                webdevhub67@gmail.com
               </a>
               <div className="ft-contact-item ft-static">
                 <span className="ft-contact-icon"><MapPin size={16} /></span>
