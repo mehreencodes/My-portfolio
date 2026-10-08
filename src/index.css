@@ -73,6 +73,7 @@ body {
   justify-content: center;
   z-index: 999;
   font-family: 'Poppins', sans-serif;
+  transition: top 0.3s ease;
 }
 
 .navbar-container {
@@ -92,6 +93,9 @@ body {
 
   position: relative;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+
+    transition: padding 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-container:hover {
@@ -402,11 +406,7 @@ body {
   box-shadow: 0 0 10px rgba(255, 122, 168, 0.6);
 }
 
-/* ── Compact on scroll ── */
-.navbar { transition: top 0.3s ease; }
-.navbar-container {
-  transition: padding 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
+
 .navbar.scrolled { top: 12px; }
 .navbar.scrolled .navbar-container {
   padding: 8px 22px;
@@ -3889,38 +3889,6 @@ EXTRA SMALL ≤480px
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 /* ── SECTION ── */
 .hero-section {
   height: 100vh;
@@ -4365,26 +4333,6 @@ EXTRA SMALL ≤480px
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/
-
-
-
-
-
- 
 /* ══════════════════════════════
    SHOW CV BUTTON — cursor fix
 ══════════════════════════════ */
@@ -5902,3 +5850,8 @@ EXTRA SMALL ≤480px
   .sg-card:hover, .sg-card:hover .sg-chip { transform: none; }
 }
    .sg-viz { height: 132px; }
+
+   /* no mouse on touch devices: hide the custom cursor dot */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot { display: none; }
+}

@@ -36,7 +36,7 @@ const Viz = ({ type }) => {
       <div className="sg-viz sg-viz-cls" aria-hidden="true">
         <span className="sg-sk sg-sk-bar" />
         <div className="sg-slot">
-          <span>reserved</span>
+          <span>reserved space</span>
         </div>
         <span className="sg-sk sg-sk-line" />
         <span className="sg-sk sg-sk-line short" />

@@ -46,7 +46,7 @@ const phrases = [
 const proofPoints = [
   "9+ live projects",
   "Mobile-first builds",
-  "Clean, maintainable code",
+  "Built to perform",
 ];
 
 const RotatingLine = () => {
