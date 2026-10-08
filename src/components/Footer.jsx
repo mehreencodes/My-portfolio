@@ -82,7 +82,7 @@ const Footer = () => {
           <div className="ft-col">
             <h3 className="ft-col-title">Get In Touch</h3>
             <div className="ft-contact">
-              <a href="mailto:khalidmehri65@gmail.com" className="ft-contact-item">
+              <a href="mailto:webdevhub67@gmail.com" className="ft-contact-item">
                 <span className="ft-contact-icon"><Mail size={16} /></span>
                 khalidmehri65@gmail.com
               </a>
