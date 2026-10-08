@@ -56,7 +56,7 @@ npm run build
 
 ## 📬 Contact
 
-- **Email:** khalidmehri65@gmail.com
+- **Email:** webdevhub67@gmail.com
 - **LinkedIn:** [mehreenkhaliddev](https://www.linkedin.com/in/mehreenkhaliddev/)
 - **GitHub:** [mehreencodes](https://github.com/mehreencodes)
 
